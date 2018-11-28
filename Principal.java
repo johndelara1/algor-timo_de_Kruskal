@@ -1,14 +1,14 @@
 /*
  * Universidade do Sul de Santa Catarina - UFSC
- * Programa do Curso de Sistemas de InformaÁ„o
- * Disciplina: ProgramaÁ„o Linear e Grafos
+ * Programa do Curso de Sistemas de Informa√ß√£o
+ * Disciplina: Programa√ß√£o Linear e Grafos
  * Prof Osmar de Oliveira Braz Junior
  *
- * Baseado nas aulas e cÛdigo do Github do Professor Osmar 
+ * Baseado nas aulas e c√≥digo do Github do Professor Osmar 
  *
- * P·gina 459 Thomas H. Cormen 3a Ed
+ * P√°gina 459 Thomas H. Cormen 3a Ed
  *
- * ¡rvore Geradora MÌnima(MST) com o Algoritmo de Kruskal
+ * √Årvore Geradora M√≠nima(MST) com o Algoritmo de Kruskal
  */
 
 /**
@@ -22,17 +22,17 @@ import java.util.List;
 
 public class Principal {        
   
-    //Vetor dos pais de um vÈrtice
+    //Vetor dos pais de um v√©rtice
     static int[] pi;         
     //d[x] armazena o instante de descoberta de x.
-    //Cada nÛ x possui um ?posto? rank[x] que ¥e um limitante superior para a altura de x
+    //Cada n√≥ x possui um ?posto? rank[x] que ¬¥e um limitante superior para a altura de x
     //Equivale a d[x]
     static int[] rank;
 
     /**
      * Encontra a raiz de um conjunto.
      * 
-     * P·gina 415 Thomas H. Cormen 3a Ed
+     * P√°gina 415 Thomas H. Cormen 3a Ed
      * 
      * @param x Elemento a ser procurado.
      * @return a raiz do conjunto
@@ -46,9 +46,9 @@ public class Principal {
     }    
 
     /**
-     * Link realiza a ligaÁ„o de dois elementos a serem unidos.
+     * Link realiza a liga√ß√£o de dois elementos a serem unidos.
      * 
-     * P·gina 415 Thomas H. Cormen 3a Ed
+     * P√°gina 415 Thomas H. Cormen 3a Ed
      * 
      * @param x Primeiro elemento
      * @param y Segundo elemento
@@ -65,9 +65,9 @@ public class Principal {
     }
     
     /**
-     * Realiza a uni„o de dois elementos.
+     * Realiza a uni√£o de dois elementos.
      * 
-     * P·gina 415 Thomas H. Cormen 3a Ed
+     * P√°gina 415 Thomas H. Cormen 3a Ed
      * 
      * @param x Primeiro elemento
      * @param y Segundo elemento
@@ -77,9 +77,9 @@ public class Principal {
     }
               
     /**
-     * Cria o conjunto unit·rio de x.
+     * Cria o conjunto unit√°rio de x.
      * 
-     * P·gina 415 Thomas H. Cormen 3a Ed
+     * P√°gina 415 Thomas H. Cormen 3a Ed
      * 
      * @param x conjunto a ser criado
      */
@@ -89,10 +89,10 @@ public class Principal {
     }
  
     /**
-     * Troca um n˙mero que representa a posiÁ„o pela vÈrtice do grafo.
+     * Troca um n√∫mero que representa a posi√ß√£o pela v√©rtice do grafo.
      *
-     * @param i PosiÁ„o da letra
-     * @return Uma String com a letra da posiÁ„o i
+     * @param i Posi√ß√£o da letra
+     * @return Uma String com a letra da posi√ß√£o i
      */
     public static String trocar(int i) {
         String letras = "abcde";        
@@ -104,10 +104,10 @@ public class Principal {
     }
 
     /**
-     * Troca a letra pela posiÁ„o na matriz de adjacÍcia
+     * Troca a letra pela posi√ß√£o na matriz de adjac√™cia
      *
-     * @param v Letra a ser troca pela posiÁ„o
-     * @return Um inteiro com a posiÁ„o da letra no grafo
+     * @param v Letra a ser troca pela posi√ß√£o
+     * @return Um inteiro com a posi√ß√£o da letra no grafo
      */
     public static int destrocar(char v) {
         String letras = "abcde";
@@ -129,7 +129,7 @@ public class Principal {
         //Guarda o custo do caminho
         int custo = 0;
         //Percorre os as arestas de A
-        //O lado comeÁa em 0 e desconta um elemento pois ele se repete
+        //O lado come√ßa em 0 e desconta um elemento pois ele se repete
         for (int v = 0; v < n-1; v++) {           
            System.out.println(trocar(A[v][0]) + " -> " + trocar(A[v][1]) + " custo: " + A[v][2]);                              
            custo = custo + A[v][2];        }
@@ -138,7 +138,7 @@ public class Principal {
 
     /**
      * Gera um vetor de arestas e pesos.
-     * @param G Matriz de adjacÍncia do grafo
+     * @param G Matriz de adjac√™ncia do grafo
      * @return Um vetor de arestas e pesos.
      */   
     public static List getMatrizVertices(int[][] G){
@@ -146,7 +146,7 @@ public class Principal {
         List vertices = new LinkedList();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                //Somente para o tri‚ngulo superior
+                //Somente para o tri√¢ngulo superior
                 if ((i<j)&&(G[i][j]!=0)){
                     //Cria um vetor de 3 elementos para conter                     
                     //[0]=u(origem), [1]=v(destino), [2]=w(peso)
@@ -158,18 +158,18 @@ public class Principal {
     }    
     
     /**
-     * Executa o algoritmo de Kruskal para ¡rvore geradora MÌnima.
+     * Executa o algoritmo de Kruskal para √Årvore geradora M√≠nima.
      * 
-     * Complexidade do algoritmo È O(E log E) = O(E log V)
+     * Complexidade do algoritmo √© O(E log E) = O(E log V)
      * 
-     * @param G Matriz de indic‚ncia da ¡rvore      
+     * @param G Matriz de indic√¢ncia da √Årvore      
      * @return Vetor com a lista das arestas de menor custo
      */ 
     public static int[][] algoritmoKruskal(int[][] G) {
         //Vetor das Arestas de retorno
         int[][] A;
          
-        //Converte a matriz em uma lista de vÈrtices
+        //Converte a matriz em uma lista de v√©rtices
         List arestas = getMatrizVertices(G); 
         
         //Quantidade de arestas da lista
@@ -179,11 +179,11 @@ public class Principal {
         A = new int[n][]; //Vetor de retorno
         pi = new int[n];
         rank = new int[n];
-        //Cria a ¡rvore para cada vÈrtice
+        //Cria a √Årvore para cada v√©rtice
         for (int v = 0; v < n; v++) {
             makeSet(v);                
         }
-        //Ordene as arestas em ordem n„o-decrescente de peso
+        //Ordene as arestas em ordem n√£o-decrescente de peso
         Collections.sort(arestas, (int[] e1, int[] e2) -> {
             if (e1[2] < e2[2]) return -1;
             if (e1[2] > e2[2]) return 1;
@@ -196,18 +196,17 @@ public class Principal {
             int[] vertice = (int[])arestas.get(i);
             int u = findSet(vertice[0]);
             int v = findSet(vertice[1]);
-            if (u != v) { //Est„o em ¡rvores diferentes                
+            if (u != v) { //Est√£o em √Årvores diferentes                
                 A[linha] = vertice;
                 linha = linha + 1;                
-                union(u,v);//Unir as duas ¡rvores
+                union(u,v);//Unir as duas √Årvores
             }
         }
         return A;        
      }    
 
     public static void main(String args[]) {
-        //Matriz de incidÍncia para um grafo direcionado
-        // Teste JOHN___________________________________________________________
+        //Matriz de incid√™ncia para um grafo direcionado
         int G[][] =
                //a   b   c   d   e  
                {{0, 55, 56, 80, 75}, //a
@@ -217,10 +216,10 @@ public class Principal {
                 {0, 0,  0,  0,  0}}; //e
                 
 
-        //Quantidade de vÈrtices
+        //Quantidade de v√©rtices
         int n = G.length;
         
-        System.out.println(">>> ¡rvore Geradora MÌnima - Algoritmo de Kruskal <<<");
+        System.out.println(">>> √Årvore Geradora M√≠nima - Algoritmo de Kruskal <<<");
 
         //Executa o algoritmo
         int[][] g = algoritmoKruskal(G);
